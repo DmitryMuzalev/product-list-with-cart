@@ -12,8 +12,9 @@ const GlobalStyle = createGlobalStyle`
  }
 
 html, body {
-  font-family: "Red Hat Text", sans-serif;
-  font-size: 16px;
+  font-family: ${(props) => props.theme.font.family};
+  font-size: ${(props) => props.theme.font.size};
+  font-weight:${(props) => props.theme.font.weight.normal};
 }
 
 `;
