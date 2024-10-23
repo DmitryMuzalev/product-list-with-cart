@@ -7,6 +7,7 @@ const theme = {
     natural_300: "hsl(14, 25%, 72%)",
     natural_400: "hsl(7, 20%, 60%)",
     natural_500: "hsl(12, 20%, 44%)",
+    natural_800: "hsl(14, 85%, 32%)",
     natural_900: "hsl(14, 65%, 9%)",
   },
 
@@ -19,6 +20,14 @@ const theme = {
       bold: 700,
     },
   },
+
+  border: "1px solid transparent",
+  borderRadius: {
+    circle: "50%",
+    full: "1000px",
+  },
+
+  transitionDuration: "0.3s",
 };
 
 export { theme };

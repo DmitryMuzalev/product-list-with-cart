@@ -4,7 +4,7 @@ import RedHatTextWof2 from "../assets/fonts/RedHatText-VariableFont_wght.woff";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    
+
 @font-face {
   font-family: "Red Hat Text", sans-serif;
   src: url(${RedHatTextWof2}) format('woff2'),
@@ -15,6 +15,11 @@ html, body {
   font-family: ${(props) => props.theme.font.family};
   font-size: ${(props) => props.theme.font.size};
   font-weight:${(props) => props.theme.font.weight.normal};
+  color: ${(props) => props.theme.color.natural_900}
+}
+
+button{
+  cursor: pointer
 }
 
 `;
