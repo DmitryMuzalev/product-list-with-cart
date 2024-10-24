@@ -1,24 +1,26 @@
-import CartIcon from "../assets/icons/icon-add-to-cart.svg";
 import { useState } from "react";
-import { Button } from "./Button";
-import { Counter } from "./Counter";
+import { AddProductButton } from "./AddProductButton";
+import { CounterButton } from "./CounterButton";
 
 const ProductCardButton = () => {
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(0);
 
   const increment = () => setCounter((prev) => prev + 1);
   const decrement = () => setCounter((prev) => prev - 1);
 
-  return <>{!counter ? <AddToCart /> : <Counter />}</>;
+  return (
+    <>
+      {!counter ? (
+        <AddProductButton cb={increment} />
+      ) : (
+        <CounterButton
+          increment={increment}
+          decrement={decrement}
+          value={counter}
+        />
+      )}
+    </>
+  );
 };
 
-function AddToCart() {
-  return (
-    <Button $outline>
-      <img src={CartIcon} alt="cart" />
-      <span>Add to Cart</span>
-    </Button>
-  );
-}
-
-export { ProductCardButton, AddToCart };
+export { ProductCardButton };
