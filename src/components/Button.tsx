@@ -2,10 +2,10 @@ import styled, { css } from "styled-components";
 
 type ButtonPropsType = {
   $primary?: boolean;
-  $outline?: boolean;
 };
 
 const Button = styled.button<ButtonPropsType>`
+  width: 100%;
   padding: 10px 25px;
   border: none;
   border-radius: ${(props) => props.theme.borderRadius.full};
@@ -24,22 +24,6 @@ const Button = styled.button<ButtonPropsType>`
       transition: background-color ${(props) => props.theme.transitionDuration};
       &:hover {
         background-color: ${(props) => props.theme.color.natural_800};
-      }
-    `}
-
-  ${(props) =>
-    props.$outline &&
-    css<ButtonPropsType>`
-      display: flex;
-      align-items: center;
-      column-gap: 0.625rem;
-      background-color: ${(props) => props.theme.color.natural_50};
-      border: ${(props) => props.theme.border}
-      border-color: ${(props) => props.theme.color.natural_400};
-      transition: all ${(props) => props.theme.transitionDuration};
-      &:hover {
-        border-color: ${(props) => props.theme.color.primary};
-        color: ${(props) => props.theme.color.primary};
       }
     `}
 `;
