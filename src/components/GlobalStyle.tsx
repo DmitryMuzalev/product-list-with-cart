@@ -18,6 +18,12 @@ html, body {
   color: ${(props) => props.theme.color.natural_900}
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 button{
   cursor: pointer
 }
