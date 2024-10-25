@@ -1,13 +1,17 @@
-import { useState } from "react";
 import { AddProductButton } from "./AddProductButton";
 import { CounterButton } from "./CounterButton";
 
-const ProductCardButton = () => {
-  const [counter, setCounter] = useState(0);
+type ProductCardButtonProps = {
+  counter: number;
+  increment: () => void;
+  decrement: () => void;
+};
 
-  const increment = () => setCounter((prev) => prev + 1);
-  const decrement = () => setCounter((prev) => prev - 1);
-
+const ProductCardButton = ({
+  counter,
+  increment,
+  decrement,
+}: ProductCardButtonProps) => {
   return (
     <>
       {!counter ? (
