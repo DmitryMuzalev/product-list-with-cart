@@ -1,34 +1,40 @@
 import styled from "styled-components";
-import { ProductCardButton } from "./ProductCardButton";
 import { ProductCardImage } from "./ProductCardImage";
+import { ProductCardInfo } from "./ProductCardInfo";
+import { useState } from "react";
+
+const testProduct = {
+  image: {
+    thumbnail: "./images/image-creme-brulee-thumbnail.jpg",
+    mobile: "./images/image-creme-brulee-mobile.jpg",
+    tablet: "./images/image-creme-brulee-tablet.jpg",
+    desktop: "./images/image-creme-brulee-desktop.jpg",
+  },
+  name: "Vanilla Bean Crème Brûlée",
+  category: "Crème Brûlée",
+  price: 7.0,
+};
 
 const Wrapper = styled.article`
-  border: 1px solid red;
+  width: 250px;
   overflow: hidden;
 `;
 
 function ProductCard() {
-  const testProduct = {
-    image: {
-      thumbnail: "./images/image-waffle-thumbnail.jpg",
-      mobile: "./images/image-waffle-mobile.jpg",
-      tablet: "./images/image-waffle-tablet.jpg",
-      desktop: "./images/image-waffle-desktop.jpg",
-    },
-    name: "Waffle with Berries",
-    category: "Waffle",
-    price: 6.5,
-  };
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => setCounter((prev) => prev + 1);
+  const decrement = () => setCounter((prev) => prev - 1);
 
   return (
     <Wrapper>
-      <ProductCardImage image={testProduct.image} name={testProduct.name} />
-      <ProductCardButton />
-      <div>
-        <p>{testProduct.category}</p>
-        <h3>{testProduct.name}</h3>
-        <span>{"$" + testProduct.price}</span>
-      </div>
+      <ProductCardImage {...testProduct} counter={counter} />
+      <ProductCardInfo
+        {...testProduct}
+        counter={counter}
+        increment={increment}
+        decrement={decrement}
+      />
     </Wrapper>
   );
 }
