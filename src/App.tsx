@@ -1,13 +1,9 @@
-import { Button } from "./components/Button";
-import { ProductCardButton } from "./components/ProductCardButton";
+import { ProductCard } from "./components/ProductCard";
 
 function App() {
   return (
     <div>
-      <Button $primary>Confirm Order</Button>
-      <br />
-      <br />
-      <ProductCardButton />
+      <ProductCard />
     </div>
   );
 }

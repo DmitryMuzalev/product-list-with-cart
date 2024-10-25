@@ -18,6 +18,10 @@ html, body {
   color: ${(props) => props.theme.color.natural_900}
 }
 
+body{
+  padding: 40px;
+}
+
 *{
   margin: 0;
   padding: 0;
