@@ -1,13 +1,13 @@
-import { Button } from "./components/Button";
-import { ProductCardButton } from "./components/ProductCardButton";
+import { Cart } from "./components/Cart";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <div>
-      <Button $primary>Confirm Order</Button>
-      <br />
-      <br />
-      <ProductCardButton />
+      <Layout>
+        <div>Products</div>
+        <Cart />
+      </Layout>
     </div>
   );
 }
