@@ -14,6 +14,7 @@ const theme = {
   },
 
   font: {
+    family: "Red Hat Text, sans-serif",
     size: "16px",
     weight: {
       normal: 400,

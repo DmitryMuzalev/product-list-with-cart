@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { EmptyCart } from "./EmptyCart";
+import { Order } from "./Order/Order";
+//import { EmptyCart } from "./EmptyCart";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.white};
@@ -17,8 +18,9 @@ const Wrapper = styled.div`
 function Cart() {
   return (
     <Wrapper>
-      <h2>{`Your Cart (7)`}</h2>
-      <EmptyCart />
+      <h2>{`Your Cart (1)`}</h2>
+      <Order />
+      {/* <EmptyCart /> */}
     </Wrapper>
   );
 }
