@@ -13,6 +13,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.color.primary};
     margin-bottom: 1.5rem;
   }
+
+  @media (${(props) => props.theme.mediaQuery.mobile}) {
+    padding: 20px 15px;
+  }
 `;
 
 function Cart() {
