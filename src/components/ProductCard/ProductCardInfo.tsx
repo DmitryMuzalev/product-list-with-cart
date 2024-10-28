@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ProductCardButton } from "./ProductCardButton";
+import { ProductCardButton } from "./ProductCardButton/ProductCardButton";
 
 type ProductCardInfoProps = {
   name: string;
