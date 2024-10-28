@@ -8,6 +8,7 @@ const Wrapper = styled.li`
   padding-bottom: 0.5rem;
   border-bottom: ${(props) => props.theme.border};
   border-color: ${(props) => props.theme.color.natural_100};
+  column-gap: 0.5rem;
 
   h3 {
     font-size: 1rem;
