@@ -2,6 +2,8 @@ const theme = {
   color: {
     primary: "hsl(14, 86%, 42%)",
     secondary: "hsl(159, 69%, 38%)",
+
+    white: "hsl(0, 0%, 100%)",
     natural_50: "hsl(20, 50%, 98%)",
     natural_100: "hsl(13, 31%, 94%)",
     natural_300: "hsl(14, 25%, 72%)",
@@ -12,8 +14,8 @@ const theme = {
   },
 
   font: {
-    size: "16px",
     family: "Red Hat Text, sans-serif",
+    size: "16px",
     weight: {
       normal: 400,
       semi_bold: 600,
