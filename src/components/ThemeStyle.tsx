@@ -25,8 +25,16 @@ const theme = {
 
   border: "1px solid transparent",
   borderRadius: {
+    small: "10px",
     circle: "50%",
     full: "1000px",
+  },
+
+  mediaQuery: {
+    mobile: "max-width: 576px",
+    tablet: "max-width: 768px",
+    small_desktop: "max-width: 992px",
+    desktop: "max-width: 1280px",
   },
 
   transitionDuration: "0.3s",

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div<{ $active: boolean }>`
   position: relative;
-  border-radius: 10px;
+  border-radius: ${(props) => props.theme.borderRadius.small};
   overflow: hidden;
   picture,
   img {
