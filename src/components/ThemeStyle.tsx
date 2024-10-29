@@ -25,7 +25,7 @@ const theme = {
 
   border: "1px solid transparent",
   borderRadius: {
-    small: "10px",
+    small: "0.5rem",
     circle: "50%",
     full: "1000px",
   },

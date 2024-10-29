@@ -15,8 +15,8 @@ const Wrapper = styled.li`
   }
 
   button {
-    height: 18px;
-    width: 18px;
+    height: 1.125rem;
+    width: 1.125rem;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -4,6 +4,7 @@ const Wrapper = styled.div<{ $active: boolean }>`
   position: relative;
   border-radius: ${(props) => props.theme.borderRadius.small};
   overflow: hidden;
+
   picture,
   img {
     display: block;

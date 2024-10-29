@@ -6,7 +6,7 @@ type ButtonPropsType = {
 
 const Button = styled.button<ButtonPropsType>`
   width: 100%;
-  padding: 10px 25px;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: ${(props) => props.theme.borderRadius.full};
   font-family: inherit;
@@ -19,7 +19,7 @@ const Button = styled.button<ButtonPropsType>`
     props.$primary &&
     css<ButtonPropsType>`
       color: ${(props) => props.theme.color.natural_50};
-      padding: 17px 40px;
+      padding: 1rem 2.5rem;
       font-size: 1rem;
       transition: background-color ${(props) => props.theme.transitionDuration};
       &:hover {

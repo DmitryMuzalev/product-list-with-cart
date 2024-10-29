@@ -8,7 +8,7 @@ type AddProductButtonProps = {
 
 const Wrapper = styled(Button)`
   width: 100%;
-  max-width: 160px;
+  max-width: 10rem;
   display: flex;
   align-items: center;
   column-gap: 0.625rem;
