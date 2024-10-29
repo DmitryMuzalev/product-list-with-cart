@@ -2,25 +2,14 @@ import styled from "styled-components";
 import { ProductCardImage } from "./ProductCardImage";
 import { ProductCardInfo } from "./ProductCardInfo";
 import { useState } from "react";
+import { ProductType } from "../../types";
 
 const Wrapper = styled.article`
   width: 100%;
   overflow: hidden;
 `;
 
-type Product = {
-  image: {
-    thumbnail: string;
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-  name: string;
-  category: string;
-  price: number;
-};
-
-function ProductCard({ productData }: Product) {
+function ProductCard({ productData }: ProductType) {
   const [counter, setCounter] = useState(0);
 
   const increment = () => setCounter((prev) => prev + 1);

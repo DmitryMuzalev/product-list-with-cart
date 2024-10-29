@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductType } from "../../types";
 
 const Wrapper = styled.ul`
   display: grid;
@@ -7,7 +8,7 @@ const Wrapper = styled.ul`
   gap: 1.5rem;
 `;
 
-const testProductList = [
+const testProductList: ProductType[] = [
   {
     image: {
       thumbnail: "./images/image-waffle-thumbnail.jpg",

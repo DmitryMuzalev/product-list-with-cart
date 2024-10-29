@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ProductType } from "../../types";
 
 const Wrapper = styled.div<{ $active: boolean }>`
   position: relative;
@@ -23,15 +24,9 @@ const Wrapper = styled.div<{ $active: boolean }>`
   }
 `;
 
-type ProductCardImageProps = {
-  name: string;
+interface ProductCardImageProps extends Omit<ProductType, "price"> {
   counter: number;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-};
+}
 
 function ProductCardImage({ name, image, counter }: ProductCardImageProps) {
   return (

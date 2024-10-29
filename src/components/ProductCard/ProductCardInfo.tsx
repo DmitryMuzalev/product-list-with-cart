@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { ProductCardButton } from "./ProductCardButton/ProductCardButton";
+import { ProductType } from "../../types";
 
-type ProductCardInfoProps = {
-  name: string;
-  category: string;
-  price: number;
+interface ProductCardInfoProps extends Omit<ProductType, "image"> {
   counter: number;
   increment: () => void;
   decrement: () => void;
-};
+}
 
 const Wrapper = styled.div`
   position: relative;

@@ -5,12 +5,16 @@ import App from "./App.tsx";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./components/ThemeStyle.tsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </Provider>
   </StrictMode>
 );
