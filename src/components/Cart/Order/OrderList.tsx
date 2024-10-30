@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { OrderListItem } from "./OrderListItem";
+import { useSelector } from "react-redux";
+import { selectOrder } from "../../../redux/slices/order-slice";
 
 const Wrapper = styled.ul`
   display: flex;
@@ -8,12 +10,13 @@ const Wrapper = styled.ul`
 `;
 
 function OrderList() {
+  const orderList = useSelector(selectOrder);
+
   return (
     <Wrapper>
-      <OrderListItem />
-      <OrderListItem />
-      <OrderListItem />
-      <OrderListItem />
+      {orderList.map((item, index) => (
+        <OrderListItem key={index} {...item} />
+      ))}
     </Wrapper>
   );
 }

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useAppSelector } from "../../redux/redux-hooks";
+import { selectOrderItemQuantity } from "../../redux/slices/order-slice";
 import { ProductType } from "../../types";
 
 const Wrapper = styled.div<{ $active: boolean }>`
@@ -24,13 +26,16 @@ const Wrapper = styled.div<{ $active: boolean }>`
   }
 `;
 
-interface ProductCardImageProps extends Omit<ProductType, "price"> {
-  counter: number;
-}
+function ProductCardImage({
+  name,
+  image,
+}: Omit<ProductType, "price" | "category">) {
+  const quantity = useAppSelector((state) =>
+    selectOrderItemQuantity(state, name)
+  );
 
-function ProductCardImage({ name, image, counter }: ProductCardImageProps) {
   return (
-    <Wrapper $active={!!counter}>
+    <Wrapper $active={!!quantity}>
       <picture>
         <source
           media="(max-width: 576px)"

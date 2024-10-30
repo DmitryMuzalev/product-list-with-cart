@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Button } from "../../UI/Button";
-import CartIcon from "../../../assets/icons/icon-add-to-cart.svg";
+import { Button } from "../UI/Button";
+import CartIcon from "../../assets/icons/icon-add-to-cart.svg";
 
-type AddProductButtonProps = {
+type AddProductButtonType = {
   cb: () => void;
 };
 
@@ -23,7 +23,7 @@ const Wrapper = styled(Button)`
   }
 `;
 
-function AddProductButton({ cb }: AddProductButtonProps) {
+function AddProductButton({ cb }: AddProductButtonType) {
   return (
     <Wrapper onClick={cb}>
       <img src={CartIcon} alt="cart" />

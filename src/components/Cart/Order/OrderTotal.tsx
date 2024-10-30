@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { selectOrder } from "../../../redux/slices/order-slice";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,10 +16,17 @@ const Wrapper = styled.div`
 `;
 
 function OrderTotal() {
+  const orderList = useSelector(selectOrder);
+
+  const total = orderList.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
   return (
     <Wrapper>
       <p>Order Total</p>
-      <span>$46.50</span>
+      <span>${total.toFixed(2)}</span>
     </Wrapper>
   );
 }

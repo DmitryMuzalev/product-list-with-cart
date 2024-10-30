@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import RemoveIcon from "../../../assets/icons/icon-remove-item.svg?react";
+import { OrderItemType } from "../../../types/order";
+import { useAppDispatch } from "../../../redux/redux-hooks";
+import { removeProduct } from "../../../redux/slices/order-slice";
 
 const Wrapper = styled.li`
   display: flex;
@@ -65,18 +68,20 @@ const Total = styled.span`
   font-weight: ${(props) => props.theme.font.weight.semi_bold};
 `;
 
-function OrderListItem() {
+function OrderListItem({ name, price, quantity }: OrderItemType) {
+  const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       <OrderListItemInfo>
-        <h3>Vanilla Bean Crème Brûlée</h3>
+        <h3>{name}</h3>
         <div>
-          <Amount>2x</Amount>
-          <Price>@$7.00</Price>
-          <Total>$14.00</Total>
+          <Amount>{`x${quantity}`}</Amount>
+          <Price>{`@$${price?.toFixed(2)}`}</Price>
+          <Total>{`$${(quantity * price)?.toFixed(2)}`}</Total>
         </div>
       </OrderListItemInfo>
-      <button>
+      <button onClick={() => dispatch(removeProduct(name))}>
         <RemoveIcon />
       </button>
     </Wrapper>

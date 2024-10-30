@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import { ProductCardButton } from "./ProductCardButton/ProductCardButton";
 import { ProductType } from "../../types";
-
-interface ProductCardInfoProps extends Omit<ProductType, "image"> {
-  counter: number;
-  increment: () => void;
-  decrement: () => void;
-}
+import { useAppDispatch, useAppSelector } from "../../redux/redux-hooks";
+import {
+  addProduct,
+  decrementQuantity,
+  incrementQuantity,
+  selectOrderItemQuantity,
+} from "../../redux/slices/order-slice";
+import { AddProductButton } from "./AddProductButton";
+import { CounterButton } from "./CounterButton";
 
 const Wrapper = styled.div`
   position: relative;
@@ -35,21 +37,35 @@ const Wrapper = styled.div`
   }
 `;
 
-function ProductCardInfo({
-  category,
-  name,
-  price,
-  counter,
-  increment,
-  decrement,
-}: ProductCardInfoProps) {
+function ProductCardInfo({ name, price, category, image }: ProductType) {
+  const dispatch = useAppDispatch();
+
+  const quantity = useAppSelector((state) =>
+    selectOrderItemQuantity(state, name)
+  );
+
+  const handlerAddProductBtn = () =>
+    dispatch(addProduct({ name, price, category, image }));
+
+  const handlerIncrement = () => {
+    dispatch(incrementQuantity(name));
+  };
+
+  const handlerDecrement = () => {
+    dispatch(decrementQuantity(name));
+  };
+
   return (
     <Wrapper>
-      <ProductCardButton
-        counter={counter}
-        decrement={decrement}
-        increment={increment}
-      />
+      {!quantity ? (
+        <AddProductButton cb={handlerAddProductBtn} />
+      ) : (
+        <CounterButton
+          value={quantity}
+          increment={handlerIncrement}
+          decrement={handlerDecrement}
+        />
+      )}
       <p>{category}</p>
       <h3>{name}</h3>
       <span>{"$" + price.toFixed(2)}</span>

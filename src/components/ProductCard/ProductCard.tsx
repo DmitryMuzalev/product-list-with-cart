@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ProductCardImage } from "./ProductCardImage";
 import { ProductCardInfo } from "./ProductCardInfo";
-import { useState } from "react";
+
 import { ProductType } from "../../types";
 
 const Wrapper = styled.article`
@@ -9,21 +9,13 @@ const Wrapper = styled.article`
   overflow: hidden;
 `;
 
-function ProductCard({ productData }: ProductType) {
-  const [counter, setCounter] = useState(0);
-
-  const increment = () => setCounter((prev) => prev + 1);
-  const decrement = () => setCounter((prev) => prev - 1);
+function ProductCard({ data }: { data: ProductType }) {
+  const { name, image } = data;
 
   return (
     <Wrapper>
-      <ProductCardImage {...productData} counter={counter} />
-      <ProductCardInfo
-        {...productData}
-        counter={counter}
-        increment={increment}
-        decrement={decrement}
-      />
+      <ProductCardImage {...{ name, image }} />
+      <ProductCardInfo {...data} />
     </Wrapper>
   );
 }

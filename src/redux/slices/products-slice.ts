@@ -13,8 +13,12 @@ const productsSlice = createSlice({
       }
     },
   },
+  selectors: {
+    selectProducts: (state) => state,
+  },
 });
 
 export const { loadProducts } = productsSlice.actions;
+export const { selectProducts } = productsSlice.selectors;
 
 export const productsReducer = productsSlice.reducer;

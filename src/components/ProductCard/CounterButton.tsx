@@ -1,7 +1,7 @@
-import IncrementIcon from "../../../assets/icons/icon-increment-quantity.svg?react";
-import DecrementIcon from "../../../assets/icons/icon-decrement-quantity.svg?react";
+import IncrementIcon from "../../assets/icons/icon-increment-quantity.svg?react";
+import DecrementIcon from "../../assets/icons/icon-decrement-quantity.svg?react";
 import styled from "styled-components";
-import { Button } from "../../UI/Button";
+import { Button } from "../UI/Button";
 
 type CounterButtonProps = {
   increment: () => void;

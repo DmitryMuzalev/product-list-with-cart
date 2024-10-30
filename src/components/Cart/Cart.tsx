@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Order } from "./Order/Order";
-//import { EmptyCart } from "./EmptyCart";
+import { useSelector } from "react-redux";
+import { selectOrder } from "../../redux/slices/order-slice";
+import { EmptyCart } from "./EmptyCart";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.white};
@@ -20,11 +22,16 @@ const Wrapper = styled.div`
 `;
 
 function Cart() {
+  const orderList = useSelector(selectOrder);
+
+  const quantityProducts = !orderList.length
+    ? 0
+    : orderList.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <Wrapper>
-      <h2>{`Your Cart (1)`}</h2>
-      <Order />
-      {/* <EmptyCart /> */}
+      <h2>{`Your Cart (${quantityProducts})`}</h2>
+      {quantityProducts ? <Order /> : <EmptyCart />}
     </Wrapper>
   );
 }
