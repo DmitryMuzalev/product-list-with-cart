@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { ProductType } from "../../types";
-import { useAppDispatch, useAppSelector } from "../../redux/redux-hooks";
+import { ProductType } from "types";
+import { useAppDispatch, useAppSelector } from "redux/redux-hooks";
 import {
   addProduct,
   decrementQuantity,
   incrementQuantity,
-  selectOrderItemQuantity,
-} from "../../redux/slices/order-slice";
+  selectCartItemQuantity,
+} from "feature/Cart/cart-slice";
 import { AddProductButton } from "./AddProductButton";
 import { CounterButton } from "./CounterButton";
 
@@ -41,7 +41,7 @@ function ProductCardInfo({ name, price, category, image }: ProductType) {
   const dispatch = useAppDispatch();
 
   const quantity = useAppSelector((state) =>
-    selectOrderItemQuantity(state, name)
+    selectCartItemQuantity(state, name)
   );
 
   const handlerAddProductBtn = () =>

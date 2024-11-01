@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectOrder } from "../../../redux/slices/order-slice";
+import { selectCart } from "./cart-slice";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,10 +15,10 @@ const Wrapper = styled.div`
   }
 `;
 
-function OrderTotal() {
-  const orderList = useSelector(selectOrder);
+function CartTotal() {
+  const cartList = useSelector(selectCart);
 
-  const total = orderList.reduce(
+  const total = cartList.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
@@ -31,4 +31,4 @@ function OrderTotal() {
   );
 }
 
-export { OrderTotal };
+export { CartTotal };

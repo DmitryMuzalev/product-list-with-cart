@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductCard } from "./ProductCard/ProductCard";
 import { useSelector } from "react-redux";
-import { selectProducts } from "../../redux/slices/products-slice";
+import { selectProducts } from "./products-slice";
 
 const Wrapper = styled.ul`
   display: grid;

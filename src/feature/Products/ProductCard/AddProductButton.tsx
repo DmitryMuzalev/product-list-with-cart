@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Button } from "../UI/Button";
-import CartIcon from "../../assets/icons/icon-add-to-cart.svg";
+import { Button } from "components/UI/Button";
+import CartIcon from "assets/icons/icon-add-to-cart.svg";
 
 type AddProductButtonType = {
   cb: () => void;

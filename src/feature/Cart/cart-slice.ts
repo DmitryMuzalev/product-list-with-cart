@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { OrderItemType } from "../../types/order";
-import { ProductType } from "../../types";
+import { resetToDefault } from "redux/root-actions";
 
-const initialState: OrderItemType[] = [];
+import { CartItemType } from "types";
+import { ProductType } from "types";
 
-const orderSlice = createSlice({
-  name: "order",
+const initialState: CartItemType[] = [];
+
+const cartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<ProductType>) => {
@@ -44,20 +46,23 @@ const orderSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(resetToDefault, () => initialState);
+  },
   selectors: {
-    selectOrder: (state) => state,
-    selectOrderItemQuantity: (state, name: string) =>
+    selectCart: (state) => state,
+    selectCartItemQuantity: (state, name: string) =>
       state.find((item) => item.name === name)?.quantity || 0,
   },
 });
 
-export const { selectOrder, selectOrderItemQuantity } = orderSlice.selectors;
+export const { selectCart, selectCartItemQuantity } = cartSlice.selectors;
 
 export const {
   addProduct,
   removeProduct,
   incrementQuantity,
   decrementQuantity,
-} = orderSlice.actions;
+} = cartSlice.actions;
 
-export const orderReducer = orderSlice.reducer;
+export const cartReducer = cartSlice.reducer;

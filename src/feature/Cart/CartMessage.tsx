@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import CarbonNeutralIcon from "../../../assets/icons/icon-carbon-neutral.svg?react";
+import CarbonNeutralIcon from "assets/icons/icon-carbon-neutral.svg?react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function OrderMessage() {
+function CartMessage() {
   return (
     <Wrapper>
       <CarbonNeutralIcon />
@@ -27,4 +27,4 @@ function OrderMessage() {
   );
 }
 
-export { OrderMessage };
+export { CartMessage };

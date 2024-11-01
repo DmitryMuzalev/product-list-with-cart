@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ProductCardImage } from "./ProductCardImage";
 import { ProductCardInfo } from "./ProductCardInfo";
 
-import { ProductType } from "../../types";
+import { ProductType } from "types";
 
 const Wrapper = styled.article`
   width: 100%;

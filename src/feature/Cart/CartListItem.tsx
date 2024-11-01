@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import RemoveIcon from "../../../assets/icons/icon-remove-item.svg?react";
-import { OrderItemType } from "../../../types/order";
-import { useAppDispatch } from "../../../redux/redux-hooks";
-import { removeProduct } from "../../../redux/slices/order-slice";
+import RemoveIcon from "assets/icons/icon-remove-item.svg?react";
+
+import { removeProduct } from "./cart-slice";
+import { CartItemType } from "types";
+import { useAppDispatch } from "redux/redux-hooks";
 
 const Wrapper = styled.li`
   display: flex;
@@ -45,7 +46,7 @@ const Wrapper = styled.li`
     }
   }
 `;
-const OrderListItemInfo = styled.div`
+const CartListItemInfo = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -68,19 +69,19 @@ const Total = styled.span`
   font-weight: ${(props) => props.theme.font.weight.semi_bold};
 `;
 
-function OrderListItem({ name, price, quantity }: OrderItemType) {
+function CartListItem({ name, price, quantity }: CartItemType) {
   const dispatch = useAppDispatch();
 
   return (
     <Wrapper>
-      <OrderListItemInfo>
+      <CartListItemInfo>
         <h3>{name}</h3>
         <div>
           <Amount>{`x${quantity}`}</Amount>
           <Price>{`@$${price?.toFixed(2)}`}</Price>
           <Total>{`$${(quantity * price)?.toFixed(2)}`}</Total>
         </div>
-      </OrderListItemInfo>
+      </CartListItemInfo>
       <button onClick={() => dispatch(removeProduct(name))}>
         <RemoveIcon />
       </button>
@@ -88,4 +89,4 @@ function OrderListItem({ name, price, quantity }: OrderItemType) {
   );
 }
 
-export { OrderListItem };
+export { CartListItem };

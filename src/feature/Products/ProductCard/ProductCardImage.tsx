@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { useAppSelector } from "../../redux/redux-hooks";
-import { selectOrderItemQuantity } from "../../redux/slices/order-slice";
-import { ProductType } from "../../types";
+import { useAppSelector } from "redux/redux-hooks";
+import { ProductType } from "types";
+import { selectCartItemQuantity } from "feature/Cart/cart-slice";
 
 const Wrapper = styled.div<{ $active: boolean }>`
   position: relative;
@@ -31,7 +31,7 @@ function ProductCardImage({
   image,
 }: Omit<ProductType, "price" | "category">) {
   const quantity = useAppSelector((state) =>
-    selectOrderItemQuantity(state, name)
+    selectCartItemQuantity(state, name)
   );
 
   return (

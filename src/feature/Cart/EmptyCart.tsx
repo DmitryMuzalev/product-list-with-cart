@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import EmptyCartIcon from "../../assets/icons/illustration-empty-cart.svg";
+import EmptyCartIcon from "assets/icons/illustration-empty-cart.svg";
 
 const Wrapper = styled.div`
   display: flex;
