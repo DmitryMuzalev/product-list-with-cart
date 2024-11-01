@@ -4,6 +4,7 @@ import RemoveIcon from "assets/icons/icon-remove-item.svg?react";
 import { removeProduct } from "./cart-slice";
 import { CartItemType } from "types";
 import { useAppDispatch } from "redux/redux-hooks";
+import { ItemInfo } from "components/ItemInfo";
 
 const Wrapper = styled.li`
   display: flex;
@@ -13,10 +14,6 @@ const Wrapper = styled.li`
   border-bottom: ${(props) => props.theme.border};
   border-color: ${(props) => props.theme.color.natural_100};
   column-gap: 0.5rem;
-
-  h3 {
-    font-size: 1rem;
-  }
 
   button {
     height: 1.125rem;
@@ -46,42 +43,13 @@ const Wrapper = styled.li`
     }
   }
 `;
-const CartListItemInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-
-  & > div {
-    display: flex;
-    column-gap: 0.5rem;
-  }
-`;
-const Amount = styled.span`
-  color: ${(props) => props.theme.color.primary};
-  font-weight: ${(props) => props.theme.font.weight.bold};
-  margin-right: 0.5rem;
-`;
-const Price = styled.span`
-  color: ${(props) => props.theme.color.natural_400};
-`;
-const Total = styled.span`
-  color: ${(props) => props.theme.color.natural_500};
-  font-weight: ${(props) => props.theme.font.weight.semi_bold};
-`;
 
 function CartListItem({ name, price, quantity }: CartItemType) {
   const dispatch = useAppDispatch();
 
   return (
     <Wrapper>
-      <CartListItemInfo>
-        <h3>{name}</h3>
-        <div>
-          <Amount>{`x${quantity}`}</Amount>
-          <Price>{`@$${price?.toFixed(2)}`}</Price>
-          <Total>{`$${(quantity * price)?.toFixed(2)}`}</Total>
-        </div>
-      </CartListItemInfo>
+      <ItemInfo {...{ name, price, quantity }} />
       <button onClick={() => dispatch(removeProduct(name))}>
         <RemoveIcon />
       </button>
