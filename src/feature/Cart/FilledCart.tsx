@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { CartList } from "./CartList";
-import { CartTotal } from "./CartTotal";
+import { Total } from "components/Total";
 import { CartMessage } from "./CartMessage";
 import { Button } from "components/UI/Button";
 
@@ -15,7 +15,7 @@ function FilledCart() {
   return (
     <Wrapper>
       <CartList />
-      <CartTotal />
+      <Total />
       <CartMessage />
       <Button $primary>Confirm Order</Button>
     </Wrapper>
