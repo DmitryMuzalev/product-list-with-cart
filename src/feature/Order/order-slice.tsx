@@ -12,6 +12,13 @@ const orderSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(resetToDefault, () => false);
   },
+  selectors: {
+    selectOrder: (state) => state,
+  },
 });
+
+export const { confirmOrder } = orderSlice.actions;
+
+export const { selectOrder } = orderSlice.selectors;
 
 export const orderReducer = orderSlice.reducer;

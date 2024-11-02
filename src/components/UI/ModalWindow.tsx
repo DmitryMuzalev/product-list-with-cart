@@ -15,10 +15,19 @@ const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
 
   & > div {
-    width: 50%;
+    width: 100%;
+    max-width: 600px;
     padding: 2.75rem 2.5rem;
+    margin: 1rem;
     background: ${(props) => props.theme.color.white};
     border-radius: ${(props) => props.theme.borderRadius.small};
+  }
+
+  @media (${(props) => props.theme.mediaQuery.mobile}) {
+    & > div {
+      padding: 2rem 1rem;
+      margin: 0.5rem;
+    }
   }
 `;
 

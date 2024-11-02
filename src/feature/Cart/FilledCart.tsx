@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 import { CartList } from "./CartList";
-import { Total } from "components/Total";
 import { CartMessage } from "./CartMessage";
 import { Button } from "components/UI/Button";
+import { useAppDispatch } from "redux/redux-hooks";
+import { confirmOrder } from "feature/Order/order-slice";
+import { CartTotal } from "./CartTotal";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,12 +14,16 @@ const Wrapper = styled.div`
 `;
 
 function FilledCart() {
+  const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       <CartList />
-      <Total />
+      <CartTotal />
       <CartMessage />
-      <Button $primary>Confirm Order</Button>
+      <Button $primary onClick={() => dispatch(confirmOrder())}>
+        Confirm Order
+      </Button>
     </Wrapper>
   );
 }

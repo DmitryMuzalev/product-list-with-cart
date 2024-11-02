@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { OrderListItem } from "./OderListItem";
 
-const Wrapper = styled.ul``;
+const Wrapper = styled.ul`
+  width: 100%;
+`;
 
 function OrderList() {
   const cartList = useSelector(selectCart);

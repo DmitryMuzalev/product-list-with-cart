@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.white};
   padding: 2rem 1.5rem;
   border-radius: ${(props) => props.theme.borderRadius.small};
+  align-self: start;
 
   h2 {
     font-size: 1.5rem;

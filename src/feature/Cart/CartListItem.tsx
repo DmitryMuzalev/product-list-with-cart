@@ -49,7 +49,7 @@ function CartListItem({ name, price, quantity }: CartItemType) {
 
   return (
     <Wrapper>
-      <ItemInfo {...{ name, price, quantity }} />
+      <ItemInfo full {...{ name, price, quantity }} />
       <button onClick={() => dispatch(removeProduct(name))}>
         <RemoveIcon />
       </button>

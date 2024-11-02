@@ -2,19 +2,9 @@ import styled from "styled-components";
 import { useAppSelector } from "redux/redux-hooks";
 import { ProductType } from "types";
 import { selectCartItemQuantity } from "feature/Cart/cart-slice";
+import { Image } from "components/Image";
 
-const Wrapper = styled.div<{ $active: boolean }>`
-  position: relative;
-  border-radius: ${(props) => props.theme.borderRadius.small};
-  overflow: hidden;
-
-  picture,
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
+const Wrapper = styled(Image)<{ $active: boolean }>`
   &::before {
     position: absolute;
     content: "";
