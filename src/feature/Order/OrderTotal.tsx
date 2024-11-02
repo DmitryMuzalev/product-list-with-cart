@@ -5,12 +5,16 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   column-gap: 1rem;
 
   span {
     font-weight: ${(props) => props.theme.font.weight.bold};
     font-size: 1.5rem;
+  }
+
+  @media (${(props) => props.theme.mediaQuery.mobile}) {
+    padding: 1rem;
   }
 `;
 

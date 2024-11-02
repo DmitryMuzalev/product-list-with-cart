@@ -9,7 +9,7 @@ const Wrapper = styled.li`
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   border-bottom: ${(props) => props.theme.border};
   border-color: ${(props) => props.theme.color.natural_100};
 
@@ -21,6 +21,9 @@ const Wrapper = styled.li`
 
   @media (${(props) => props.theme.mediaQuery.mobile}) {
     padding: 1rem;
+    & > span {
+      font-size: 1rem;
+    }
   }
 `;
 

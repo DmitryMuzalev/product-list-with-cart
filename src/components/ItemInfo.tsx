@@ -32,6 +32,12 @@ const Wrapper = styled.div`
       font-weight: ${(props) => props.theme.font.weight.semi_bold};
     }
   }
+
+  @media (${(props) => props.theme.mediaQuery.mobile}) {
+    h3 {
+      font-size: 0.875rem;
+    }
+  }
 `;
 
 function ItemInfo({

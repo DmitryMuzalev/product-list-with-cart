@@ -17,6 +17,7 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
     margin-bottom: 0.25rem;
     text-align: left;
+    line-height: 1.2;
   }
 
   & > p {
@@ -27,13 +28,7 @@ const Wrapper = styled.div`
     width: 100%;
     background-color: ${(props) => props.theme.color.natural_50};
     border-radius: ${(props) => props.theme.borderRadius.small};
-    margin: 2rem 0;
-  }
-
-  @media (${(props) => props.theme.mediaQuery.mobile}) {
-    h2 {
-      font-size: 2rem;
-    }
+    margin: 1.75rem 0;
   }
 `;
 
