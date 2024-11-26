@@ -6,11 +6,12 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 ## Table of contents
 
 - [Overview](#overview)
+
   - [The challenge](#the-challenge)
   <!--
-  - [Screenshot](#screenshot)
+  - [Screenshot](#screenshot) -->\
   - [Links](#links)
-    -->
+
 - [Built with](#built-with)
 - [Author](#author)
 
@@ -34,12 +35,12 @@ Users should be able to:
 
 ![](./demo.gif)
 
+ -->
+
 ### Links
 
 - Solution URL: [Code on GitHub](https://github.com/DmitryMuzalev/product-list-with-cart)
 - Live Site URL: [Live on GitHub Pages](https://dmitrymuzalev.github.io/product-list-with-cart/)
-
- -->
 
 ## Built with
 
