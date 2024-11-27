@@ -8,7 +8,7 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 - [Overview](#overview)
 
   - [The challenge](#the-challenge)
-  <!-- - [Screenshot](#screenshot) -->
+  <!-- [Screenshot](#screenshot) -->
   - [Links](#links)
 
 - [Built with](#built-with)
@@ -28,13 +28,9 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-<!--
-
 ### Screenshot
 
 ![](./demo.gif)
-
- -->
 
 ### Links
 
