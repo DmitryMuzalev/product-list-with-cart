@@ -1,4 +1,4 @@
-import { selectCart } from "feature/Cart/cart-slice";
+import { selectCart } from "feature/Cart/cartSlice";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { OrderListItem } from "./OderListItem";

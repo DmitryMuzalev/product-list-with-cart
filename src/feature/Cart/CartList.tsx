@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { selectCart } from "./cart-slice";
+import { selectCart } from "./cartSlice";
 import { CartListItem } from "./CartListItem";
 
 const Wrapper = styled.ul`

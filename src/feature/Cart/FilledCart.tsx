@@ -4,8 +4,8 @@ import { CartList } from "./CartList";
 import { CartMessage } from "./CartMessage";
 import { Button } from "components/UI/Button";
 import { useAppDispatch } from "redux/redux-hooks";
-import { confirmOrder } from "feature/Order/order-slice";
 import { CartTotal } from "./CartTotal";
+import { confirmOrder } from "./cartSlice";
 
 const Wrapper = styled.div`
   display: flex;

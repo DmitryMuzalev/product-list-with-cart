@@ -1,18 +1,18 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "types";
 
 const initialState: ProductType[] = [];
 
-const productsSlice = createSlice({
+export const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    loadProducts(_, action: PayloadAction<ProductType[]>) {
-      if (action.payload.length) {
-        return action.payload;
+  reducers: (create) => ({
+    loadProducts: create.reducer<{ products: ProductType[] }>((_, action) => {
+      if (action.payload.products.length) {
+        return action.payload.products;
       }
-    },
-  },
+    }),
+  }),
   selectors: {
     selectProducts: (state) => state,
   },

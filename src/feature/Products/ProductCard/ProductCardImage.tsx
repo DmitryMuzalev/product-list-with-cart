@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useAppSelector } from "redux/redux-hooks";
 import { ProductType } from "types";
-import { selectCartItemQuantity } from "feature/Cart/cart-slice";
+import { selectCartItem } from "feature/Cart/cartSlice";
 import { Image } from "components/Image";
 
 const Wrapper = styled(Image)<{ $active: boolean }>`
@@ -17,15 +17,14 @@ const Wrapper = styled(Image)<{ $active: boolean }>`
 `;
 
 function ProductCardImage({
+  id,
   name,
   image,
 }: Omit<ProductType, "price" | "category">) {
-  const quantity = useAppSelector((state) =>
-    selectCartItemQuantity(state, name)
-  );
+  const item = useAppSelector((state) => selectCartItem(state, id));
 
   return (
-    <Wrapper $active={!!quantity}>
+    <Wrapper $active={!!item}>
       <picture>
         <source
           media="(max-width: 576px)"

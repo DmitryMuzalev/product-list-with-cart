@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { useSelector } from "react-redux";
-import { selectProducts } from "./products-slice";
+import { selectProducts } from "./productsSlice";
 
 const Wrapper = styled.ul`
   display: grid;
@@ -14,7 +14,7 @@ function ProductList() {
   return (
     <Wrapper>
       {productList.map((product, index) => {
-        return <ProductCard key={index} data={product} />;
+        return <ProductCard key={index} {...product} />;
       })}
     </Wrapper>
   );

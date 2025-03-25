@@ -1,12 +1,11 @@
-import styled from "styled-components";
-import { ProductType } from "types";
-import { useAppDispatch, useAppSelector } from "redux/redux-hooks";
 import {
   addProduct,
-  decrementQuantity,
-  incrementQuantity,
-  selectCartItemQuantity,
-} from "feature/Cart/cart-slice";
+  removeProduct,
+  selectCartItem,
+} from "feature/Cart/cartSlice";
+import { useAppDispatch, useAppSelector } from "redux/redux-hooks";
+import styled from "styled-components";
+import { ProductType } from "types";
 import { AddProductButton } from "./AddProductButton";
 import { CounterButton } from "./CounterButton";
 
@@ -37,38 +36,29 @@ const Wrapper = styled.div`
   }
 `;
 
-function ProductCardInfo({ name, price, category, image }: ProductType) {
+function ProductCardInfo(product: ProductType) {
   const dispatch = useAppDispatch();
 
-  const quantity = useAppSelector((state) =>
-    selectCartItemQuantity(state, name)
-  );
+  const item = useAppSelector((state) => selectCartItem(state, product.id));
 
-  const handlerAddProductBtn = () =>
-    dispatch(addProduct({ name, price, category, image }));
-
-  const handlerIncrement = () => {
-    dispatch(incrementQuantity(name));
-  };
-
-  const handlerDecrement = () => {
-    dispatch(decrementQuantity(name));
-  };
+  const handlerAddProduct = () => dispatch(addProduct({ product }));
+  const handlerRemoveProduct = () =>
+    dispatch(removeProduct({ id: product.id }));
 
   return (
     <Wrapper>
-      {!quantity ? (
-        <AddProductButton cb={handlerAddProductBtn} />
+      {!item ? (
+        <AddProductButton cb={handlerAddProduct} />
       ) : (
         <CounterButton
-          value={quantity}
-          increment={handlerIncrement}
-          decrement={handlerDecrement}
+          value={item.quantity}
+          increment={handlerAddProduct}
+          decrement={handlerRemoveProduct}
         />
       )}
-      <p>{category}</p>
-      <h3>{name}</h3>
-      <span>{"$" + price.toFixed(2)}</span>
+      <p>{product.category}</p>
+      <h3>{product.name}</h3>
+      <span>{"$" + product.price.toFixed(2)}</span>
     </Wrapper>
   );
 }

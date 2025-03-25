@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ProductList } from "./ProductList";
-import { loadProducts } from "./products-slice";
+import { loadProducts } from "./productsSlice";
 import { useEffect } from "react";
 import data from "assets/moke/data.json";
 import { useAppDispatch } from "redux/redux-hooks";
@@ -16,7 +16,7 @@ function Products() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(loadProducts(data));
+    dispatch(loadProducts({ products: data }));
   }, []);
 
   return (

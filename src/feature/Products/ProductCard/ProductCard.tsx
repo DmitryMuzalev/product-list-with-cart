@@ -9,13 +9,13 @@ const Wrapper = styled.article`
   overflow: hidden;
 `;
 
-function ProductCard({ data }: { data: ProductType }) {
-  const { name, image } = data;
+function ProductCard(product: ProductType) {
+  const { id, name, image } = product;
 
   return (
     <Wrapper>
-      <ProductCardImage {...{ name, image }} />
-      <ProductCardInfo {...data} />
+      <ProductCardImage {...{ id, name, image }} />
+      <ProductCardInfo {...product} />
     </Wrapper>
   );
 }

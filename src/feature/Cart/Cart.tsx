@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { useSelector } from "react-redux";
-import { selectCart } from "./cart-slice";
+import { selectCart } from "./cartSlice";
 
 import { EmptyCart } from "./EmptyCart";
 import { FilledCart } from "./FilledCart";
@@ -26,15 +26,16 @@ const Wrapper = styled.div`
 
 function Cart() {
   const cartList = useSelector(selectCart);
+  const isEmptyCart = cartList.length === 0;
 
-  const quantityProducts = !cartList.length
+  const totalProducts = isEmptyCart
     ? 0
-    : cartList.reduce((acc, item) => acc + item.quantity, 0);
+    : cartList.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <Wrapper>
-      <h2>{`Your Cart (${quantityProducts})`}</h2>
-      {quantityProducts ? <FilledCart /> : <EmptyCart />}
+      <h2>{`Your Cart (${totalProducts})`}</h2>
+      {isEmptyCart ? <EmptyCart /> : <FilledCart />}
     </Wrapper>
   );
 }

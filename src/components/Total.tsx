@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectCart } from "../feature/Cart/cart-slice";
+import { selectCart } from "../feature/Cart/cartSlice";
 
 function Total() {
   const cartList = useSelector(selectCart);
