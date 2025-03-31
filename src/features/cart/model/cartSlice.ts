@@ -23,9 +23,15 @@ export const cartSlice = createSlice({
     }),
     removeProduct: create.reducer<{ id: string }>((state, action) => {
       const index = state.items.findIndex((p) => p.id === action.payload.id);
-      if (index === -1) {
+      if (index !== -1) {
         state.items.splice(index, 1);
-      } else {
+      }
+    }),
+    removeProductUnit: create.reducer<{ id: string }>((state, action) => {
+      console.log("removeProductUnit");
+
+      const index = state.items.findIndex((p) => p.id === action.payload.id);
+      if (index !== -1) {
         state.items[index].quantity -= 1;
         if (!state.items[index].quantity) state.items.splice(index, 1);
       }
@@ -48,6 +54,7 @@ export const cartSlice = createSlice({
 export const { selectCart, selectCartItem, selectIsOrdered } =
   cartSlice.selectors;
 
-export const { addProduct, removeProduct, confirmOrder } = cartSlice.actions;
+export const { addProduct, removeProduct, removeProductUnit, confirmOrder } =
+  cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;

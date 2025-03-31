@@ -48,7 +48,8 @@ const RemoveButton = styled.button`
   }
 `;
 
-function CartListItem({ id, name, price, quantity }: CartItem) {
+function CartListItem(props: CartItem) {
+  const { id, name, price, quantity } = props;
   const dispatch = useAppDispatch();
   const handleRemove = useCallback(
     () => dispatch(removeProduct({ id })),
@@ -57,7 +58,7 @@ function CartListItem({ id, name, price, quantity }: CartItem) {
 
   return (
     <Wrapper>
-      <Info full {...{ id, name, price, quantity }} />
+      <Info {...{ name, price, quantity }} showTotal />
       <RemoveButton
         onClick={handleRemove}
         aria-label={`Remove ${name} from cart`}

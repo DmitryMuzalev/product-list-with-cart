@@ -3,10 +3,10 @@ export type Product = {
   name: string;
   category: string;
   price: number;
-  image: ProductImage;
+  image: ProductImageSet;
 };
 
-export type ProductImage = {
+export type ProductImageSet = {
   thumbnail: string;
   mobile: string;
   tablet: string;
@@ -18,5 +18,5 @@ export type CartItem = {
   name: string;
   price: number;
   quantity: number;
-  image: Pick<ProductImage, "thumbnail">;
+  image: Pick<ProductImageSet, "thumbnail">;
 };

@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 import SuccessIcon from "common/icons/icon-order-confirmed.svg?react";
 
-import { OrderList } from "./OrderList/OrderList";
-import { OrderTotal } from "./OrderTotal/OrderTotal";
-import { useAppDispatch } from "common/hooks";
 import { resetToDefault } from "common/actions";
 import { ModalWindow } from "common/actions/ModalWindow";
 import { Button } from "common/components/Button/Button";
+import { Total } from "common/components/Total/Total";
+import { useAppDispatch } from "common/hooks";
+import { OrderList } from "./OrderList/OrderList";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ function Order() {
         <p>We hope you enjoy food!</p>
         <div>
           <OrderList />
-          <OrderTotal />
+          <Total padding="1.5rem" mobilePadding="1rem" />
         </div>
         <Button $primary onClick={() => dispatch(resetToDefault())}>
           Start New Order

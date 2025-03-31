@@ -1,11 +1,9 @@
-import { Total } from "common/components/Total/Total";
 import styled from "styled-components";
-
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ $padding?: string; $mobilePadding?: string }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: ${(props) => props.$padding || "0.5rem 0"};
   column-gap: 1rem;
 
   span {
@@ -14,16 +12,10 @@ const Wrapper = styled.div`
   }
 
   @media (${(props) => props.theme.mediaQuery.mobile}) {
-    padding: 1rem;
+    padding: ${(props) => props.$mobilePadding || props.$padding || "0.5rem 0"};
   }
 `;
 
-function OrderTotal() {
-  return (
-    <Wrapper>
-      <Total />
-    </Wrapper>
-  );
-}
-
-export { OrderTotal };
+export const S = {
+  Wrapper,
+};

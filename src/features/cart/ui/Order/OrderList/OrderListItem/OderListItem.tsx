@@ -27,16 +27,14 @@ const Wrapper = styled.li`
   }
 `;
 
-function OrderListItem({
-  name,
-  image,
-  price,
-  quantity,
-}: Omit<CartItem, "category">) {
+type OrderListItemProps = Omit<CartItem, "category">;
+
+function OrderListItem(props: OrderListItemProps) {
+  const { name, image, price, quantity } = props;
   return (
     <Wrapper>
       <Thumbnail src={image.thumbnail} alt={name} />
-      <Info {...{ name, price, quantity }} />
+      <Info {...{ name, price, quantity }} variant="compact" />
       <span>{`$${(quantity * price)?.toFixed(2)}`}</span>
     </Wrapper>
   );

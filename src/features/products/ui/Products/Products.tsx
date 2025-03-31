@@ -1,23 +1,12 @@
-import styled from "styled-components";
-import { loadProducts, selectProducts } from "../../model/productsSlice";
-import { useEffect } from "react";
+import { S } from "./Products.styles";
 import data from "common/moke/data.json";
-import { useAppDispatch } from "common/hooks";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "common/hooks";
 import { ProductCard } from "./ProductCard/ProductCard";
-
-const Wrapper = styled.div`
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-  }
-`;
-
-const ProductList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
-  gap: 1.5rem;
-`;
+import {
+  loadProducts,
+  selectProducts,
+} from "features/products/model/productsSlice";
 
 function Products() {
   const dispatch = useAppDispatch();
@@ -26,17 +15,17 @@ function Products() {
     dispatch(loadProducts({ products: data }));
   }, []);
 
-  const productList = useSelector(selectProducts);
+  const productList = useAppSelector(selectProducts);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <h2>Desserts</h2>
-      <ProductList>
+      <S.ProductList>
         {productList.map((product, index) => {
           return <ProductCard key={index} {...product} />;
         })}
-      </ProductList>
-    </Wrapper>
+      </S.ProductList>
+    </S.Wrapper>
   );
 }
 

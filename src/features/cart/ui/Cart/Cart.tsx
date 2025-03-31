@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { useSelector } from "react-redux";
 import { selectCart } from "features/cart/model/cartSlice";
 import { EmptyCart } from "./EmptyCart/EmptyCart";
 import { FilledCart } from "./FilledCart/FilledCart";
+import { useAppSelector } from "common/hooks";
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.color.white};
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 `;
 
 function Cart() {
-  const cartList = useSelector(selectCart);
+  const cartList = useAppSelector(selectCart);
   const isEmptyCart = cartList.length === 0;
 
   const totalProducts = isEmptyCart

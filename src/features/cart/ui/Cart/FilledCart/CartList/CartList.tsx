@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 import { selectCart } from "features/cart/model/cartSlice";
 import { CartListItem } from "./CartListItem/CartListItem";
+import { useAppSelector } from "common/hooks";
 
 const Wrapper = styled.ul`
   display: flex;
@@ -10,7 +10,7 @@ const Wrapper = styled.ul`
 `;
 
 function CartList() {
-  const cartList = useSelector(selectCart);
+  const cartList = useAppSelector(selectCart);
 
   return (
     <Wrapper>

@@ -1,21 +1,16 @@
-import styled from "styled-components";
-import { ProductCardImage } from "./ProductCardImage/ProductCardImage";
-import { ProductCardInfo } from "./ProductCardInfo/ProductCardInfo";
+import { S } from "./ProductCard.styles";
 import { Product } from "common/types";
+import { ProductImage } from "./ProductImage/ProductImage";
+import { ProductInfo } from "./ProductInfo/ProductInfo";
 
-const Wrapper = styled.article`
-  width: 100%;
-  overflow: hidden;
-`;
-
-function ProductCard(product: Product) {
-  const { id, name, image } = product;
+function ProductCard(props: Product) {
+  const { id, name, image } = props;
 
   return (
-    <Wrapper>
-      <ProductCardImage {...{ id, name, image }} />
-      <ProductCardInfo {...product} />
-    </Wrapper>
+    <S.Wrapper>
+      <ProductImage {...{ id, name, image }} />
+      <ProductInfo {...props} />
+    </S.Wrapper>
   );
 }
 
